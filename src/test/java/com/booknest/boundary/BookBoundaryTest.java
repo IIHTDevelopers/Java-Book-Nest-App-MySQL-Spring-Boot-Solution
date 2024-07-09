@@ -95,7 +95,7 @@ public class BookBoundaryTest {
 	}
 
 	@Test
-	public void testPriceNotNull() throws IOException {
+	public void testBookPriceNotNull() throws IOException {
 		BookDTO bookDTO = new BookDTO();
 		bookDTO.setPrice(null);
 		Set<ConstraintViolation<BookDTO>> violations = validator.validate(bookDTO);
