@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.booknest.dto.BookDTO;
 import com.booknest.entity.Book;
+import com.booknest.entity.Author;
 import com.booknest.exception.NotFoundException;
 import com.booknest.repo.BookRepository;
 import com.booknest.repo.CategoryRepository;
@@ -49,7 +50,7 @@ public class BookServiceImpl implements BookService {
 	public BookDTO updateBook(Long bookId, BookDTO bookDTO) {
 		Book book = bookRepository.findById(bookId).orElseThrow(() -> new NotFoundException("Book not found"));
 		book.setTitle(bookDTO.getTitle());
-		book.setAuthor(bookDTO.getAuthor());
+		book.setAuthor(new Author(bookDTO.getAuthor()));
 		book.setCategories(
 				bookDTO.getCategoryIds().stream()
 						.map(categoryId -> categoryRepository.findById(categoryId)
