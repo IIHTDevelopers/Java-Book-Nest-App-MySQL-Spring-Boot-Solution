@@ -15,25 +15,25 @@ import jakarta.validation.constraints.NotNull;
 @Table(name = "order_items")
 public class OrderItem {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotNull
-	@ManyToOne
-	@JoinColumn(name = "order_id", nullable = false)
-	private Order order;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
 
-	@NotNull
-	@ManyToOne
-	@JoinColumn(name = "book_id", nullable = false)
-	private Book book;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "book_id", nullable = false)
+    private Book book;
 
-	@NotNull
-	private Integer quantity;
+    @NotNull
+    private Integer quantity;
 
-	@NotNull
-	private BigDecimal price;
+    @NotNull
+    private BigDecimal price;
 
 	public OrderItem() {
 		super();
