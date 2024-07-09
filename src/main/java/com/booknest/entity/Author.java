@@ -15,19 +15,24 @@ import jakarta.validation.constraints.NotNull;
 @Table(name = "authors")
 public class Author {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotNull
-	@Column(unique = true)
-	private String name;
+    @NotNull
+    @Column(unique = true)
+    private String name;
 
-	@OneToMany(mappedBy = "author")
-	private Set<Book> books;
+    @OneToMany(mappedBy = "author")
+    private Set<Book> books;
 
 	public Author() {
 		super();
+	}
+
+	public Author(String name) {
+		super();
+		this.name = name;
 	}
 
 	public Author(Long id, @NotNull String name, Set<Book> books) {
