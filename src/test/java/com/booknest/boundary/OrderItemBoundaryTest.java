@@ -35,7 +35,7 @@ public class OrderItemBoundaryTest {
 	}
 
 	@Test
-	public void testBookIdNotNull() throws IOException {
+	public void testOrderedBookIdNotNull() throws IOException {
 		OrderItemDTO orderItemDTO = new OrderItemDTO();
 		orderItemDTO.setBookId(null);
 		Set<ConstraintViolation<OrderItemDTO>> violations = validator.validate(orderItemDTO);
@@ -59,7 +59,7 @@ public class OrderItemBoundaryTest {
 	}
 
 	@Test
-	public void testPriceNotNull() throws IOException {
+	public void testOrderedBookPriceNotNull() throws IOException {
 		OrderItemDTO orderItemDTO = new OrderItemDTO();
 		orderItemDTO.setPrice(null);
 		Set<ConstraintViolation<OrderItemDTO>> violations = validator.validate(orderItemDTO);
