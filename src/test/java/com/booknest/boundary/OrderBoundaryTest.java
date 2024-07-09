@@ -35,7 +35,7 @@ public class OrderBoundaryTest {
 	}
 
 	@Test
-	public void testUserIdNotNull() throws IOException {
+	public void testOrderUserIdNotNull() throws IOException {
 		OrderDTO orderDTO = new OrderDTO();
 		orderDTO.setUserId(null);
 		Set<ConstraintViolation<OrderDTO>> violations = validator.validate(orderDTO);
