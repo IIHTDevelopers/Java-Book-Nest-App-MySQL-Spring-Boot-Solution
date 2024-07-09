@@ -35,7 +35,7 @@ public class CategoryBoundaryTest {
 	}
 
 	@Test
-	public void testNameNotBlank() throws IOException {
+	public void testCategoryNameNotBlank() throws IOException {
 		CategoryDTO categoryDTO = new CategoryDTO();
 		categoryDTO.setName("");
 		Set<ConstraintViolation<CategoryDTO>> violations = validator.validate(categoryDTO);
@@ -47,7 +47,7 @@ public class CategoryBoundaryTest {
 	}
 
 	@Test
-	public void testNameNotNull() throws IOException {
+	public void testCategoryNameNotNull() throws IOException {
 		CategoryDTO categoryDTO = new CategoryDTO();
 		categoryDTO.setName(null);
 		Set<ConstraintViolation<CategoryDTO>> violations = validator.validate(categoryDTO);
