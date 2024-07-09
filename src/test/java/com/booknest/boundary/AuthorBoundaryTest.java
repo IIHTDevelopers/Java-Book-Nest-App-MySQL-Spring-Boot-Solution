@@ -35,7 +35,7 @@ public class AuthorBoundaryTest {
 	}
 
 	@Test
-	public void testNameNotBlank() throws IOException {
+	public void testAuthorNameNotBlank() throws IOException {
 		AuthorDTO authorDTO = new AuthorDTO();
 		authorDTO.setName("");
 		Set<ConstraintViolation<AuthorDTO>> violations = validator.validate(authorDTO);
@@ -47,7 +47,7 @@ public class AuthorBoundaryTest {
 	}
 
 	@Test
-	public void testNameNotNull() throws IOException {
+	public void testAuthorNameNotNull() throws IOException {
 		AuthorDTO authorDTO = new AuthorDTO();
 		authorDTO.setName(null);
 		Set<ConstraintViolation<AuthorDTO>> violations = validator.validate(authorDTO);
