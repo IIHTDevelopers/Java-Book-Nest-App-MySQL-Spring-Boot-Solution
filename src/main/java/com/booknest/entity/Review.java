@@ -15,26 +15,26 @@ import jakarta.validation.constraints.NotNull;
 @Table(name = "reviews")
 public class Review {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotNull
-	@ManyToOne
-	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
-	@NotNull
-	@ManyToOne
-	@JoinColumn(name = "book_id", nullable = false)
-	private Book book;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "book_id", nullable = false)
+    private Book book;
 
-	@NotNull
-	@Min(1)
-	@Max(5)
-	private Integer rating;
+    @NotNull
+    @Min(1)
+    @Max(5)
+    private Integer rating;
 
-	private String comment;
+    private String comment;
 
 	public Review() {
 		super();
