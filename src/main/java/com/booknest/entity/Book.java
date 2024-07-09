@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
@@ -17,32 +18,34 @@ import jakarta.validation.constraints.NotNull;
 @Table(name = "books")
 public class Book {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotNull
-	private String title;
+    @NotNull
+    private String title;
 
-	@NotNull
-	private String author;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "author_id", nullable = false)
+    private Author author;  // Change from String to Author entity
 
-	@NotNull
-	@ManyToMany
-	@JoinTable(name = "book_category", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
-	private Set<Category> categories;
+    @NotNull
+    @ManyToMany
+    @JoinTable(name = "book_category", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> categories;
 
-	@NotNull
-	private BigDecimal price;
+    @NotNull
+    private BigDecimal price;
 
-	private String description;
+    private String description;
 
 	public Book() {
 		super();
 	}
 
-	public Book(Long id, @NotNull String title, @NotNull String author, @NotNull Set<Category> categories,
-			@NotNull BigDecimal price, String description) {
+	public Book(Long id, String title, Author author, Set<Category> categories,
+			BigDecimal price, String description) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -68,11 +71,11 @@ public class Book {
 		this.title = title;
 	}
 
-	public String getAuthor() {
+	public Author getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setAuthor(Author author) {
 		this.author = author;
 	}
 
